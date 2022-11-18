@@ -9,7 +9,6 @@ const Home = () => {
     const [genres, setGenres] = useState();
     const [active, setActive] = useState(genres?.[0]);
     const [movies, setMovies] = useState();
-    const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
 
     const requestGenres = () => {
@@ -23,7 +22,7 @@ const Home = () => {
             })
     }
 
-    const requestMovies = () => {
+    const requestMovies = (page) => {
         setLoading(true)
         fetch(API_URL + `discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${active?.id || ''}&page=${page}`)
             .then(res => res.json())
@@ -36,15 +35,10 @@ const Home = () => {
 
     useEffect(() => {
         requestGenres()
-        requestMovies()
     }, []);
 
-    const memo = useMemo(() => {
-        requestMovies()
-    }, [active, page])
-
-    const activeMemo = useMemo(() => {
-        setPage(1)
+    useEffect(() => {
+        active && requestMovies(1)
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -52,11 +46,14 @@ const Home = () => {
     }, [active])
 
     return (
-        <div className='home_page'>
-            <Genres genres={genres} active={active} setActive={setActive}/>
-            <Movies movies={movies} genre={active?.name} setPage={setPage}/>
-        </div>
-
+        <>
+            {loading ? <Loader /> : (
+                <div className='home_page'>
+                    <Genres genres={genres} active={active} setActive={setActive}/>
+                    <Movies movies={movies} genre={active?.name} requestMovies={requestMovies}/>
+                </div>
+            )}
+        </>
     );
 };
 

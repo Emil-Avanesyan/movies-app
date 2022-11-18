@@ -3,7 +3,7 @@ import './style.scss';
 import StarSrc from '../../../assets/images/star.png';
 import {Link} from "react-router-dom";
 
-const Movies = ({movies, genre, setPage}) => {
+const Movies = ({movies, genre, requestMovies}) => {
 
     return (
         <>
@@ -42,7 +42,9 @@ const Movies = ({movies, genre, setPage}) => {
                     <h3>{'Showed ' + movies?.page * 20 + ' of ' + movies?.total_results}</h3>
                 </div>
                 <div className='btn'>
-                    <button onClick={() => setPage((page) => ++page)}>Load More</button>
+                    <button onClick={() => {
+                        requestMovies(++movies.page)
+                    }}>Load More</button>
                 </div>
             </div>
         </>
