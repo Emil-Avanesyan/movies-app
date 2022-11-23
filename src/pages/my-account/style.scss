@@ -1,0 +1,158 @@
+.account_page {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 200px;
+    
+    .tabs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        margin-right: 120px;
+        margin-top: 65px;
+        .nth_tab {
+            padding: 15px 60px;
+            background-color: #3f78b4;
+            border: 1px solid #064587;
+            color: #FFFFFF;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            &.active {
+                background-color: #064587;;
+            }
+            &:hover {
+                background-color: #FFFFFF;
+                color: #064587;
+            }
+        }
+    }
+    h1 {
+        font-size: 30px;
+        text-align: center;
+        color: #064587;
+        margin-bottom: 30px;
+    }
+    h2 {
+        font-size: 25px;
+        text-align: center;
+        color: #064587;
+    }
+    .my_account {
+        text-align: center;
+    }
+    .user_info {
+        width: 500px;
+    
+        .nth_info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #064587;
+            border-radius: 5px;
+            h3 {
+                font-size: 18px;
+                &:last-of-type {
+                    font-weight: bold;
+                    margin-left: 30px;
+                }
+            }
+            &:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .movies {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-gap: 20px;
+        .movie_nth {
+          background-color: var(--color-primary);
+          color: var(--color-secondary);
+          max-width: 320px;
+          cursor: pointer;
+          transition: 0.4s;
+          overflow: hidden;
+          .image_field {
+            position: relative;
+            .icon-heart {
+              position: absolute;
+              top: 5px;
+              right: 5px;
+              font-size: 25px;
+    
+              &.active {
+                color: red;
+              }
+            }
+            .image {
+              img {
+                object-fit: contain;
+                width: 100%;
+                transition: 0.4s;
+                &:hover {
+                  transform: scale(1.1);
+                }
+              }
+              
+            }
+          }
+    
+          .movie_info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px 20px 30px;
+            .title {
+              font-size: 20px;
+              font-weight: bold;
+              -webkit-line-clamp: 1;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              white-space: normal;
+              overflow: hidden;
+            }
+            .review {
+              display: flex;
+              align-items: center;
+              img {
+                width: 20px;
+                margin-right: 10px;
+              }
+            }
+            .date {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 10px;
+            }
+            .description {
+              -webkit-line-clamp: 1;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              white-space: normal;
+              overflow: hidden;
+            }
+            .favorites {
+              padding: 5px 10px;
+              text-align: center;
+              background-color: #7a20a2;
+              color: var(--color-secondary);
+              border-radius: 50px;
+              width: 75px;
+            }
+          }
+          &:hover {
+            box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.288);
+          }
+        }
+      }
+      .favourite_empty {
+       text-align: center;
+       width: 75%;
+      }
+  }

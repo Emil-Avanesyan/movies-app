@@ -4,13 +4,14 @@ import Movies from "../../components/home/movies";
 import './style.scss';
 import {API_KEY, API_URL} from "../../constants";
 import Loader from "../../components/loader";
+import Cookies from 'js-cookie';
 
 const Home = () => {
     const [genres, setGenres] = useState();
     const [active, setActive] = useState(genres?.[0]);
     const [movies, setMovies] = useState();
     const [loading, setLoading] = useState(false);
-
+    
     const requestGenres = () => {
         setLoading(true)
         fetch(API_URL + `genre/movie/list?api_key=${API_KEY}&language=en-US`)

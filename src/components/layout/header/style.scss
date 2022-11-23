@@ -2,10 +2,32 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 5px 40px;
+  padding: 10px 40px;
   background-color: var(--color-primary);
   backdrop-filter: blur(1px);
+  z-index: 999;
+  
+  .header_main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
   img {
     width: 50px;
   }
+  .icons_section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+    .icon {
+      font-size: 30px;
+      cursor: pointer;
+      :hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 }
+

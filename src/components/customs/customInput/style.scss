@@ -1,0 +1,12 @@
+.custom_input {
+    input {
+        border: none;
+        background-color: rgb(163, 189, 211);
+        border-radius: 5px;
+        padding: 12px;
+        width: 280px;
+        &:focus{
+            outline: none;
+        }
+    }
+}

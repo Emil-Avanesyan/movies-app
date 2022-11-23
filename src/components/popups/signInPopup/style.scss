@@ -1,0 +1,87 @@
+.popup_back {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.sign_in_popup{
+    position: fixed;
+    left: calc(50% - 250px);
+    top: 150px;
+    width: 500px;
+    border: 1px solid #011627;
+    border-radius: 1em;
+    background-color: #FDFFFC;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    color: #011627;
+    padding: 40px;
+    transition: 0.3s;
+    .tab_section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 30px;
+        .nth_tab {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2c6696;
+            cursor: pointer;
+            transition: 0.3s;
+            &.active {
+                font-size: 35px;
+            }
+            &:hover {
+                transform: scale(1.1);
+            }
+
+        }
+
+    }
+    .input_field {
+        .nth_input {
+            position: relative;
+            .custom_input {
+                margin-bottom: 25px;
+            }
+            .error_message {
+                font-size: 12px;
+                color: #ff6b6b;
+                text-align: left;
+                position: absolute;
+                top: 44px;
+              }
+        }
+        
+    }
+    .btn {
+        text-align: center;
+        button {
+            font-size: 18px;
+            color: #FFFFFF;
+            background-color: #064587;
+            border: 1px solid #064587;
+            padding: 7px;
+            text-align: center;
+            width: 200px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                background-color: #FFFFFF;
+                color: #064587;
+            }
+        }
+    }
+   
+}
